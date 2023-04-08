@@ -1,1 +1,1 @@
-# ptt
+# Part-time Thrift Git Repository
