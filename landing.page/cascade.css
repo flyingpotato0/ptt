@@ -115,25 +115,25 @@
     margin-bottom: 0;
     text-decoration: none;
   }
-/* unvisited link */
+
 a:link {
   color: black;
   text-decoration: none;
 }
 
-/* visited link */
+
 a:visited {
   color: black;
   text-decoration: none;
 }
 
-/* mouse over link */
+
 a:hover {
   color: #F5E1D5;
   text-decoration: none;
 }
 
-/* selected link */
+
 a:active {
   color: blue;
   text-decoration: none;
