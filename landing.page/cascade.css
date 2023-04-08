@@ -1,120 +1,126 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .frame1-frame1 {
-    width: 100%;
-    height: 1080px;
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    align-items: flex-start;
-    flex-shrink: 0;
-    border-color: transparent;
-    background-color: rgba(238, 219, 205, 1);
-  }
-  .frame1-text {
-    top: 421px;
-    left: 1069px;
-    color: rgba(0, 0, 0, 1);
-    width: 503px;
-    height: auto;
-    position: absolute;
-    font-size: 64px;
-    align-self: auto;
-    font-style: Regular;
-    text-align: left;
-    font-family:'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 15px;
-    font-stretch: normal;
-    margin-right: 0;
-    margin-bottom: 0;
-    text-decoration: none;
-  }
-  .frame1-text02 {
-    top: 509px;
-    left: 1076px;
-    color: rgba(0, 0, 0, 1);
-    width: 596px;
-    height: auto;
-    position: absolute;
-    font-size: 24px;
-    align-self: auto;
-    font-style: Regular;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 15px;
-    font-stretch: normal;
-    margin-right: 0;
-    margin-bottom: 0;
-    text-decoration: none;
-  }
-  .frame1-button {
-    top: 607px;
-    left: 1150px;
-    width: 257px;
-    height: 69px;
-    display: flex;
-    padding: 20px;
-    position: absolute;
-    align-self: auto;
-    box-sizing: border-box;
-    align-items: flex-start;
-    flex-shrink: 1;
-    border-color: transparent;
-    border-style: none;
-    border-width: 0;
-    margin-right: 0;
-    border-radius: 15px;
-    margin-bottom: 0;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: rgba(24, 92, 77, 1);
-  }
-  .frame1-text07 {
-    top: 23px;
-    left: 0px;
-    color: rgba(238, 219, 205, 1);
-    width: 257px;
-    height: auto;
-    position: absolute;
-    font-size: 20px;
-    align-self: auto;
-    font-style: Regular;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 15px;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-part-time-thriftlogos1 {
-    top: 250px;
-    left: 350px;
-    width: 500px;
-    height: 500px;
-    position: relative;
-    border-color: transparent;
-  }
-  .frame1-text09 {
-    top: 28px;
-    left: 1781px;
-    color: rgba(0, 0, 0, 1);
-    width: 102px;
-    height: auto;
-    position: absolute;
-    font-size: 20px;
-    align-self: auto;
-    font-style: Regular;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 15px;
-    font-stretch: normal;
-    margin-right: 0;
-    margin-bottom: 0;
-    text-decoration: none;
-  }
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: transparent;
+  background-color: rgba(238, 219, 205, 1);
+}
+
+.frame1-text {
+  top: 421px;
+  left: 1069px;
+  color: rgba(0, 0, 0, 1);
+  width: 503px;
+  height: auto;
+  position: absolute;
+  font-size: 64px;
+  align-self: auto;
+  font-style: Regular;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 15px;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.frame1-text02 {
+  top: 509px;
+  left: 1076px;
+  color: rgba(0, 0, 0, 1);
+  width: 596px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  font-style: Regular;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 15px;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.frame1-button {
+  top: 607px;
+  left: 1150px;
+  width: 257px;
+  height: 69px;
+  display: flex;
+  padding: 20px;
+  position: absolute;
+  align-self: auto;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-color: transparent;
+  border-style: none;
+  border-width: 0;
+  margin-right: 0;
+  border-radius: 15px;
+  margin-bottom: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: rgba(24, 92, 77, 1);
+}
+
+.frame1-text07 {
+  top: 23px;
+  left: 0px;
+  color: rgba(238, 219, 205, 1);
+  width: 257px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  align-self: auto;
+  font-style: Regular;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 15px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.frame1-part-time-thriftlogos1 {
+  top: 250px;
+  left: 350px;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  border-color: transparent;
+}
+
+.frame1-text09 {
+  top: 28px;
+  left: 1781px;
+  color: rgba(0, 0, 0, 1);
+  width: 102px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  align-self: auto;
+  font-style: Regular;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 15px;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
 
 a:link {
   color: black;
