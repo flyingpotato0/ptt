@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 .frame1-frame1 {
     width: 100%;
     height: 1080px;
@@ -20,7 +22,7 @@
     align-self: auto;
     font-style: Regular;
     text-align: left;
-    font-family: Poppins;
+    font-family:'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 15px;
     font-stretch: normal;
@@ -39,7 +41,7 @@
     align-self: auto;
     font-style: Regular;
     text-align: left;
-    font-family: Poppins;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 15px;
     font-stretch: normal;
@@ -49,11 +51,11 @@
   }
   .frame1-button {
     top: 607px;
-    left: 1192px;
+    left: 1150px;
     width: 257px;
     height: 69px;
     display: flex;
-    padding: 0;
+    padding: 20px;
     position: absolute;
     align-self: auto;
     box-sizing: border-box;
@@ -63,7 +65,7 @@
     border-style: none;
     border-width: 0;
     margin-right: 0;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 15px;
     margin-bottom: 0;
     flex-direction: row;
     justify-content: flex-start;
@@ -80,18 +82,18 @@
     align-self: auto;
     font-style: Regular;
     text-align: center;
-    font-family: Poppins;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 15px;
     font-stretch: normal;
     text-decoration: none;
   }
   .frame1-part-time-thriftlogos1 {
-    top: 317px;
-    left: 247px;
-    width: 700px;
-    height: 700px;
-    position: absolute;
+    top: 250px;
+    left: 350px;
+    width: 500px;
+    height: 500px;
+    position: relative;
     border-color: transparent;
   }
   .frame1-text09 {
@@ -105,7 +107,7 @@
     align-self: auto;
     font-style: Regular;
     text-align: left;
-    font-family: Inter;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 15px;
     font-stretch: normal;
@@ -113,4 +115,26 @@
     margin-bottom: 0;
     text-decoration: none;
   }
-  
+/* unvisited link */
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: #F5E1D5;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: none;
+}
