@@ -1,4 +1,9 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -6,6 +11,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebas
 const firebaseConfig = {
   apiKey: "AIzaSyCR-zTNAY2aYq3W9y5fX8iMbJg1KoJdGNI",
   authDomain: "part-time-thrift.firebaseapp.com",
+  databaseURL: "https://part-time-thrift-default-rtdb.firebaseio.com",
   projectId: "part-time-thrift",
   storageBucket: "part-time-thrift.appspot.com",
   messagingSenderId: "760241332498",
@@ -14,140 +20,104 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+signup.addEventListener('click',(e) => {
 
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var username = document.getElementById('fullname').value;
 
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
 
+      set(ref(database, 'users/' + user.uid), {
+        username: username,
+        email: email,
+        password: password
+      })
+        .then(() => {
+          window.location.href = '../home.page/index.html';
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+});
 
-const auth = firebase.auth()
-const database = firebase.database()
+login.addEventListener('click',(e)=>{
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
 
-// Set up our register function
-function register () {
-  // Get all our input fields
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
-  full_name = document.getElementById('full_name').value
-  favourite_song = document.getElementById('favourite_song').value
-  milk_before_cereal = document.getElementById('milk_before_cereal').value
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
 
-  // Validate input fields
-  if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
-    return
-    // Don't continue running the code
-  }
-  if (validate_field(full_name) == false || validate_field(favourite_song) == false || validate_field(milk_before_cereal) == false) {
-    alert('One or More Extra Fields is Outta Line!!')
-    return
-  }
- 
-  // Move on with Auth
-  auth.createUserWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
+      const dt = new Date();
+      update(ref(database, 'users/' + user.uid),{
+        last_login: dt,
+      })
 
-    // Add this user to Firebase Database
-    var database_ref = database.ref()
+      window.location.href = '../home.page/index.html';
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
 
-    // Create User data
-    var user_data = {
-      email : email,
-      full_name : full_name,
-      favourite_song : favourite_song,
-      milk_before_cereal : milk_before_cereal,
-      last_login : Date.now()
-    }
+      alert(errorMessage);
+  });
+});
 
-    // Push to Firebase Database
-    database_ref.child('users/' + user.uid).set(user_data)
-
-    // DOne
-    alert('User Created!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-
-    alert(error_message)
-  })
-}
-
-// Set up our login function
-function login () {
-  // Get all our input fields
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
-
-  // Validate input fields
-  if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
-    return
-    // Don't continue running the code
-  }
-
-  auth.signInWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
-
-    // Add this user to Firebase Database
-    var database_ref = database.ref()
-
-    // Create User data
-    var user_data = {
-      last_login : Date.now()
-    }
-
-    // Push to Firebase Database
-    database_ref.child('users/' + user.uid).update(user_data)
-
-    // DOne
-    alert('User Logged In!!')
-
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-
-    alert(error_message)
-  })
+function isValidEmail(email) {
+  // use regex to check if the email is valid
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
 
+// login.addEventListener('click',(e)=>{
+//   var email = document.getElementById('email').value;
+//   var password = document.getElementById('password').value;
 
+//      signInWithEmailAndPassword(auth, email, password)
+//      .then((userCredential) => {
+//        // Signed in 
+//        const user = userCredential.user;
 
-// Validate Functions
-function validate_email(email) {
-  expression = /^[^@]+@\w+(\.\w+)+\w$/
-  if (expression.test(email) == true) {
-    // Email is good
-    return true
-  } else {
-    // Email is not good
-    return false
-  }
-}
+//        const dt = new Date();
+//         update(ref(database, 'users/' + user.uid),{
+//          last_login: dt,
+//        })
 
-function validate_password(password) {
-  // Firebase only accepts lengths greater than 6
-  if (password < 6) {
-    return false
-  } else {
-    return true
-  }
-}
+//        window.location.href = '../home.page/index.html';
+//        // ...
+//      })
+//      .catch((error) => {
+//        const errorCode = error.code;
+//        const errorMessage = error.message;
 
-function validate_field(field) {
-  if (field == null) {
-    return false
-  }
+//        alert(errorMessage);
+//  });
+// });
 
-  if (field.length <= 0) {
-    return false
-  } else {
-    return true
-  }
-}
+// const user = auth.currentUser;
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     //bla bla bla
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//     //bla bla bla
+//   }
+// });
